@@ -108,5 +108,11 @@ public class TEST1 {
         firstProduct.click();
         WebElement stars = driver.findElement(By.className("EQlfk _38X5e"));
         stars.click();
+
+        //14. Закрыть браузер
+
+        driver.close();
+
+
     }
 }
