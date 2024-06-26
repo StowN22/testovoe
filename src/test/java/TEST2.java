@@ -8,26 +8,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-public class TEST1 {
+public class TEST2 {
 
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "D:\\ads\\ds\\chromedriver-win64\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
 
-        //1. Открыть браузер и развернуть во весь экран.
-
         driver.manage().window().maximize();
-
-        //2. Перейти по ссылке market.yandex.ru
 
         driver.get("https://market.yandex.ru");
 
-        //3. В разделе Маркет выбрать "Смартфоны"
-
-        WebElement element = driver.findElement(By.id("hamburger"));
-        element.click();
+        WebElement katalog = driver.findElement(By.id("hamburger"));
+        katalog.click();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
@@ -43,12 +38,8 @@ public class TEST1 {
         WebElement smartfones2 = driver.findElement(By.className("_1tdYt CCS_Z"));
         smartfones2.click();
 
-        //4. Зайти во "Все фильтры"
-
         WebElement filter = driver.findElement(By.className("_1_C0_ _1n-yE _16wT_ _1Dmnq"));
         filter.click();
-
-        //5. Задать параметр поиска "Цена" до 20000 рублей и "Диагональ экрана" от 3 дюймов
 
         WebElement overprice = driver.findElement(By.className("_2xtC2"));
         overprice.sendKeys("20000");
@@ -58,8 +49,6 @@ public class TEST1 {
 
         WebElement diagonal2 = driver.findElement(By.className("_2xtC2"));
         diagonal2.sendKeys("3");
-
-        //6. Выбрать не менее 5 любых производителей, среди популярных
 
         WebElement blackview = driver.findElement(By.xpath("//*[@id=\"10380976\"]/div"));
         blackview.click();
@@ -76,18 +65,14 @@ public class TEST1 {
         WebElement realme = driver.findElement(By.xpath("//*[@id=\"16713696\"]/div"));
         realme.click();
 
-        //7. Кликнуть кнопку "Показать товары"
-
         WebElement apply = driver.findElement(By.className("_2qvOO _3qN-v _1Rc6L"));
         apply.click();
 
-        //8. Проверить, что элементов на странице 10
-
         wait.until(ExpectedConditions.numberOfElementsToBe(By.className("EQlfk Gqfzd"), 10));
 
-        //9. Запомнить первый элемент в списке
 
-        
+
+
 
 
 
@@ -96,4 +81,4 @@ public class TEST1 {
 
 
     }
-}
+    }
